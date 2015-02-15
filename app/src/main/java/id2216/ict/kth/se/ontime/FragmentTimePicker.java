@@ -54,6 +54,6 @@ public class FragmentTimePicker extends DialogFragment
                 hourOfDay, minute, 0);
         long tarTime = calendar.getTimeInMillis();
 
-        mCallback.startTimer(tarTime - currTime, 1000);
+        mCallback.startTimer(tarTime - currTime, 1000, "Custom timer");
     }
 }

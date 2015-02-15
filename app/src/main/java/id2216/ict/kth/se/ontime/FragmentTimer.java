@@ -39,6 +39,11 @@ public class FragmentTimer extends Fragment {
         textView.setText(text);
     }
 
+    public void setJourneyInfo(String text) {
+        TextView textView = (TextView) getView().findViewById(R.id.journeyInfoText);
+        textView.setText(text);
+    }
+
     @Override
     public void onActivityCreated(final Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);

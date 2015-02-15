@@ -10,8 +10,9 @@ public interface TimerInterface {
      *
      * @param time     Time to count down from
      * @param interval Interval at which the "onTick" function is called
+     * @param journeyInfo Text info to update the info text on timer tab, ex. "Bus towards Kista"
      */
-    public void startTimer(long time, long interval);
+    public void startTimer(long time, long interval, String journeyInfo);
 
     /**
      * Cancels any current timer if one exists. Should be called before creating a new timer or

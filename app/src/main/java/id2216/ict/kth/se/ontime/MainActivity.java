@@ -50,9 +50,11 @@ public class MainActivity extends FragmentActivity implements TimerInterface {
         pager.setCurrentItem(0);
     }
 
-    public void startTimer(long time, long interval) {
+    public void startTimer(long time, long interval, String journeyInfo) {
         pager.setCurrentItem(0);
         final FragmentTimer a = (FragmentTimer) adapter.getItem(pager.getCurrentItem());
+
+        a.setJourneyInfo(journeyInfo);
 
         // Get interval
         int intervalNotification = settings.getInt("interval", 0);

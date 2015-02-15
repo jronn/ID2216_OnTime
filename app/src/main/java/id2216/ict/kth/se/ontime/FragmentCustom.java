@@ -43,7 +43,7 @@ public class FragmentCustom extends Fragment {
                         timePicker.getCurrentHour(), timePicker.getCurrentMinute(), 0);
                 long tarTime = calendar.getTimeInMillis();
 
-                mCallback.startTimer(tarTime - currTime, 1000);
+                mCallback.startTimer(tarTime - currTime, 1000, "Custom timer");
             }
         });
     }
