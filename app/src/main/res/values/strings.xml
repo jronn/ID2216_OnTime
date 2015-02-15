@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">On Time</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="timer_title">Time until departure</string>
+    <string name="timer">00:00:00</string>
+    <string name="cancel_timer_button">Cancel</string>
+
+    <string name="recent_searches_label">.. or pick a recent search</string>
+    <string name="search_button">Search</string>
+    <string name="search_box">Search for start location</string>
+
+    <string name="custom_start_button">Start</string>
+    <string name="custom_title">Specify a time</string>
+
+    <string name="settings_title">Settings</string>
+    <string name="vib_cb">Vibration notification</string>
+    <string name="sound_cb">Sound notification</string>
+    <string name="save_settings">Save</string>
+    <string name="interval_label">Notify me when:</string>
+
+    <string-array name="interval_array">
+        <item>1 min remains</item>
+        <item>2 min remains</item>
+        <item>3 min remains</item>
+        <item>4 min remains</item>
+        <item>5 min remains</item>
+        <item>6 min remains</item>
+        <item>7 min remains</item>
+        <item>8 min remains</item>
+        <item>9 min remains</item>
+        <item>10 min remains</item>
+    </string-array>
+</resources>

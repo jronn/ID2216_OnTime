@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/settings_title"
+        android:id="@+id/textView"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"/>
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/vib_cb"
+        android:id="@+id/vibrationCB"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true"/>
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sound_cb"
+        android:id="@+id/soundCB"
+        android:layout_below="@+id/vibrationCB"
+        android:layout_alignLeft="@+id/vibrationCB"
+        android:layout_alignStart="@+id/vibrationCB" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/settingsSpinner"
+        android:layout_below="@+id/intervalLabel"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:entries="@array/interval_array"
+        android:layout_marginTop="10dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/save_settings"
+        android:id="@+id/saveSettingsButton"
+        android:layout_below="@+id/settingsSpinner"
+        android:layout_centerHorizontal="true"
+        android:layout_alignLeft="@+id/settingsSpinner"
+        android:layout_alignRight="@+id/settingsSpinner"
+        android:layout_marginTop="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/interval_label"
+        android:id="@+id/intervalLabel"
+        android:layout_centerVertical="true"
+        android:layout_below="@+id/soundCB"
+        android:layout_alignStart="@id/settingsSpinner"
+        android:layout_alignLeft="@+id/settingsSpinner"
+        android:layout_marginTop="10dp"/>
+
+</RelativeLayout>
