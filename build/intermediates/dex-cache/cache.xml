@@ -2,39 +2,39 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\jronn\AndroidStudioProjects\OnTime\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\classes.jar"
+        jar="C:\Users\Greedy\Android studioProjects\ID2216_OnTime\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\classes.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
-        <dex dex="C:\Users\jronn\AndroidStudioProjects\OnTime\app\build\intermediates\pre-dexed\debug\classes-a51e0e377bf93ee7eefb37e03bf32268fe250f6f.jar" />
+        <dex dex="C:\Users\Greedy\Android studioProjects\ID2216_OnTime\app\build\intermediates\pre-dexed\debug\classes-3495641dfe72441f1ac7d98ae20aedce79357913.jar" />
     </item>
     <item
-        jar="C:\Users\jronn\AndroidStudioProjects\OnTime\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.3\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
-        <dex dex="C:\Users\jronn\AndroidStudioProjects\OnTime\app\build\intermediates\pre-dexed\debug\classes-167d3f230b7cf3669fed26ebdfc2266ca88e47cb.jar" />
-    </item>
-    <item
-        jar="C:\Users\jronn\AndroidStudioProjects\OnTime\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\libs\internal_impl-21.0.3.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
-        <dex dex="C:\Users\jronn\AndroidStudioProjects\OnTime\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-1c5d7432b7f5a97599cba6226c401a1bfa455f2d.jar" />
-    </item>
-    <item
-        jar="C:\Users\jronn\AndroidStudioProjects\OnTime\app\build\intermediates\exploded-aar\com.astuetz\pagerslidingtabstrip\1.0.1\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="7912610ed96381c25c36d986eba422731b9641b6">
-        <dex dex="C:\Users\jronn\AndroidStudioProjects\OnTime\app\build\intermediates\pre-dexed\debug\classes-0cdc11bd2b86e78f0dee68cd77d10a291f0bf096.jar" />
-    </item>
-    <item
-        jar="C:\Users\jronn\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\21.0.3\support-annotations-21.0.3.jar"
+        jar="C:\Users\Greedy\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\21.0.3\support-annotations-21.0.3.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
-        <dex dex="C:\Users\jronn\AndroidStudioProjects\OnTime\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-63adf59bc29b42f093b422cf2fdf8a6ed4c7228a.jar" />
+        <dex dex="C:\Users\Greedy\Android studioProjects\ID2216_OnTime\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-9ed5ba748402a13f2c7265925bdde7e92454db71.jar" />
+    </item>
+    <item
+        jar="C:\Users\Greedy\Android studioProjects\ID2216_OnTime\app\build\intermediates\exploded-aar\com.astuetz\pagerslidingtabstrip\1.0.1\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="7912610ed96381c25c36d986eba422731b9641b6">
+        <dex dex="C:\Users\Greedy\Android studioProjects\ID2216_OnTime\app\build\intermediates\pre-dexed\debug\classes-71de18b37c0c826f994c18b8c1f0889c5641e88d.jar" />
+    </item>
+    <item
+        jar="C:\Users\Greedy\Android studioProjects\ID2216_OnTime\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.3\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
+        <dex dex="C:\Users\Greedy\Android studioProjects\ID2216_OnTime\app\build\intermediates\pre-dexed\debug\classes-1e13297a08f424c62c34cd1376125fc9ec46c5c1.jar" />
+    </item>
+    <item
+        jar="C:\Users\Greedy\Android studioProjects\ID2216_OnTime\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\libs\internal_impl-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
+        <dex dex="C:\Users\Greedy\Android studioProjects\ID2216_OnTime\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-4d5ba9c14e2ff17333ca7a590457cfd4f3399124.jar" />
     </item>
 
 </items>

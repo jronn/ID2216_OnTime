@@ -13,7 +13,7 @@ import java.util.List;
  */
 public class MyPageAdapter extends FragmentPagerAdapter {
 
-    List<Fragment> fragments=new ArrayList<Fragment>();
+    List<Fragment> fragments = new ArrayList<Fragment>();
     Fragment hiddenSearch;
 
     public MyPageAdapter(FragmentManager fm) {
@@ -31,16 +31,21 @@ public class MyPageAdapter extends FragmentPagerAdapter {
     public CharSequence getPageTitle(int position) {
         String tab;
 
-        switch(position) {
-            case 0: tab = "Timer";
+        switch (position) {
+            case 0:
+                tab = "Timer";
                 break;
-            case 1: tab = "Search";
+            case 1:
+                tab = "Search";
                 break;
-            case 2: tab = "Custom";
+            case 2:
+                tab = "Custom";
                 break;
-            case 3: tab = "Settings";
+            case 3:
+                tab = "Settings";
                 break;
-            default: tab = "";
+            default:
+                tab = "";
                 break;
         }
 

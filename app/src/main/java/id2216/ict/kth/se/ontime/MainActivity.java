@@ -8,8 +8,10 @@ import android.net.Uri;
 import android.os.Vibrator;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
+import android.view.View;
 
 import com.astuetz.PagerSlidingTabStrip;
 
@@ -33,9 +35,9 @@ public class MainActivity extends FragmentActivity implements TimerInterface {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        settings = getSharedPreferences("OnTimeSettings",0);
+        settings = getSharedPreferences("OnTimeSettings", 0);
 
-        vibrator = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
+        vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 
         pager = (ViewPager) findViewById(R.id.pager);
         pager.setOffscreenPageLimit(5);
@@ -45,16 +47,16 @@ public class MainActivity extends FragmentActivity implements TimerInterface {
         // Bind the tabs to the ViewPager
         PagerSlidingTabStrip tabs = (PagerSlidingTabStrip) findViewById(R.id.tabs);
         tabs.setViewPager(pager);
-        pager.setCurrentItem(3);
+        pager.setCurrentItem(0);
     }
 
     public void startTimer(long time, long interval) {
         pager.setCurrentItem(0);
-        final FragmentTimer a = (FragmentTimer)adapter.getItem(pager.getCurrentItem());
+        final FragmentTimer a = (FragmentTimer) adapter.getItem(pager.getCurrentItem());
 
         // Get interval
         int intervalNotification = settings.getInt("interval", 0);
-        final int notificationTime = (intervalNotification+1) * 60 * 1000;
+        final int notificationTime = (intervalNotification + 1) * 60 * 1000;
 
 
         cancelTimer();
@@ -64,7 +66,7 @@ public class MainActivity extends FragmentActivity implements TimerInterface {
                 a.changeText(formatTimeLeft(millisUntilFinished));
 
                 // Vibrera vid inställt intervall
-                if(millisUntilFinished > notificationTime - 500 && millisUntilFinished < notificationTime + 500) {
+                if (millisUntilFinished > notificationTime - 500 && millisUntilFinished < notificationTime + 500) {
                     vibrate();
                     playSound();
                 }
@@ -81,7 +83,7 @@ public class MainActivity extends FragmentActivity implements TimerInterface {
 
 
     public void cancelTimer() {
-        if(cdt != null) {
+        if (cdt != null) {
             cdt.cancel();
             cdt = null;
         }
@@ -92,7 +94,7 @@ public class MainActivity extends FragmentActivity implements TimerInterface {
      * Plays a basic notification sound
      */
     private void playSound() {
-        if(settings.getBoolean("sound",false)) {
+        if (settings.getBoolean("sound", false)) {
             try {
                 Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
                 Ringtone r = RingtoneManager.getRingtone(getApplicationContext(), notification);
@@ -107,14 +109,15 @@ public class MainActivity extends FragmentActivity implements TimerInterface {
      * Vibrates in a specific pattern
      */
     private void vibrate() {
-        if(settings.getBoolean("vibrations", true)) {
-            long[] pattern = {0,1000,500,1000,500,1000};
+        if (settings.getBoolean("vibrations", true)) {
+            long[] pattern = {0, 1000, 500, 1000, 500, 1000};
             vibrator.vibrate(pattern, -1);
         }
     }
 
     /**
      * Formats the time in milliseconds to the form HH:MM:SS
+     *
      * @param millis Time left in milliseconds
      * @return String of formatted time
      */
@@ -127,16 +130,21 @@ public class MainActivity extends FragmentActivity implements TimerInterface {
         StringBuilder minutesStr = new StringBuilder(Long.toString(minutes % 60));
         StringBuilder hoursStr = new StringBuilder(Long.toString(hours));
 
-        if(secondsStr.length() == 1)
-            secondsStr.insert(0,"0");
+        if (secondsStr.length() == 1)
+            secondsStr.insert(0, "0");
 
-        if(minutesStr.length() == 1)
-            minutesStr.insert(0,"0");
+        if (minutesStr.length() == 1)
+            minutesStr.insert(0, "0");
 
-        if(hoursStr.length() == 1)
-            hoursStr.insert(0,"0");
+        if (hoursStr.length() == 1)
+            hoursStr.insert(0, "0");
 
         return hoursStr + ":" + minutesStr + ":" + secondsStr;
+    }
+
+    public void showTimePickerDialog(View v) {
+        DialogFragment newFragment = new FragmentTimePicker();
+        newFragment.show(getSupportFragmentManager(), "timePicker");
     }
 }
 

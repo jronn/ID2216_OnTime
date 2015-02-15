@@ -7,7 +7,8 @@ public interface TimerInterface {
 
     /**
      * Starts a countdown timer that lasts for a specified time, and "ticks" at a certain interval
-     * @param time Time to count down from
+     *
+     * @param time     Time to count down from
      * @param interval Interval at which the "onTick" function is called
      */
     public void startTimer(long time, long interval);

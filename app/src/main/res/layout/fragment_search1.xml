@@ -5,6 +5,16 @@
     android:layout_height="match_parent"
     android:id="@+id/search1_frame">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/search_title"
+        android:id="@+id/searchTitle"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"/>
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -21,17 +31,19 @@
         android:text="@string/search_box"
         android:ems="10"
         android:id="@+id/editText"
-        android:layout_marginTop="88dp"
-        android:layout_alignParentTop="true"
+        android:layout_marginTop="60dp"
+        android:layout_below="@+id/searchTitle"
         android:layout_centerHorizontal="true" />
 
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/listView"
+        android:id="@+id/recentSearches"
         android:layout_below="@+id/recentSearchesLabel"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="110dp" />
+        android:entries="@array/recent_searches_test_data"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -42,6 +54,7 @@
         android:layout_centerVertical="true"
         android:layout_alignLeft="@+id/editText"
         android:layout_alignStart="@+id/editText"
-        android:layout_below="@+id/searchButton"/>
+        android:layout_below="@+id/searchButton"
+        android:layout_marginTop="20dp"/>
 
 </RelativeLayout>

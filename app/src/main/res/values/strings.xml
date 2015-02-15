@@ -9,10 +9,14 @@
     <string name="timer_title">Time until departure</string>
     <string name="timer">00:00:00</string>
     <string name="cancel_timer_button">Cancel</string>
+    <string name="journey_info">No departure specified</string>
+    <string name="timer_info">To start a new timer, search for a specific departure or ..</string>
+    <string name="custom_time_button">Set custom time</string>
 
+    <string name="search_title">Search for departure location</string>
     <string name="recent_searches_label">.. or pick a recent search</string>
     <string name="search_button">Search</string>
-    <string name="search_box">Search for start location</string>
+    <string name="search_box">ex. Stockholm C</string>
 
     <string name="custom_start_button">Start</string>
     <string name="custom_title">Specify a time</string>
@@ -34,5 +38,12 @@
         <item>8 min remains</item>
         <item>9 min remains</item>
         <item>10 min remains</item>
+    </string-array>
+
+    <string-array name="recent_searches_test_data">
+        <item>Train to Sthlm C, 8.50</item>
+        <item>Train to Märsta, 8.55</item>
+        <item>Bus to Stureplan, 15:23</item>
+        <item>Train to Södertälje, 18:00</item>
     </string-array>
 </resources>

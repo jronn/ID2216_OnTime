@@ -17,7 +17,7 @@ public class FragmentSearch2 extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_search2,container,false);
+        return inflater.inflate(R.layout.fragment_search2, container, false);
     }
 
 
@@ -25,7 +25,7 @@ public class FragmentSearch2 extends Fragment {
     public void onActivityCreated(final Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        Button backButton = (Button)getView().findViewById(R.id.backButton);
+        Button backButton = (Button) getView().findViewById(R.id.backButton);
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

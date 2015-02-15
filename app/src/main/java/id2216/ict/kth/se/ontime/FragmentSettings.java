@@ -22,7 +22,7 @@ public class FragmentSettings extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_settings,container,false);
+        return inflater.inflate(R.layout.fragment_settings, container, false);
     }
 
     @Override
@@ -30,29 +30,29 @@ public class FragmentSettings extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
         // Init
-        SharedPreferences settings = getActivity().getSharedPreferences("OnTimeSettings",0);
+        SharedPreferences settings = getActivity().getSharedPreferences("OnTimeSettings", 0);
         final SharedPreferences.Editor editor = settings.edit();
 
-        final CheckBox vCB = (CheckBox)getView().findViewById(R.id.vibrationCB);
-        vCB.setChecked(settings.getBoolean("vibrations",true));
+        final CheckBox vCB = (CheckBox) getView().findViewById(R.id.vibrationCB);
+        vCB.setChecked(settings.getBoolean("vibrations", true));
 
-        final CheckBox sCB = (CheckBox)getView().findViewById(R.id.soundCB);
-        sCB.setChecked(settings.getBoolean("sound",false));
+        final CheckBox sCB = (CheckBox) getView().findViewById(R.id.soundCB);
+        sCB.setChecked(settings.getBoolean("sound", false));
 
-        final Spinner intervalSpinner = (Spinner)getView().findViewById(R.id.settingsSpinner);
-        intervalSpinner.setSelection(settings.getInt("interval",0));
+        final Spinner intervalSpinner = (Spinner) getView().findViewById(R.id.settingsSpinner);
+        intervalSpinner.setSelection(settings.getInt("interval", 0));
 
-        Button saveButton = (Button)getView().findViewById(R.id.saveSettingsButton);
+        Button saveButton = (Button) getView().findViewById(R.id.saveSettingsButton);
 
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 editor.putBoolean("vibrations", vCB.isChecked());
-                editor.putBoolean("sound",sCB.isChecked());
+                editor.putBoolean("sound", sCB.isChecked());
                 editor.putInt("interval", intervalSpinner.getSelectedItemPosition());
                 editor.commit();
 
-                Toast.makeText(getActivity(),"settings saved", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "settings saved", Toast.LENGTH_SHORT).show();
             }
         });
     }
