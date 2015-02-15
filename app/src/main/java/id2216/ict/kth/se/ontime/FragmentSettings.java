@@ -52,7 +52,7 @@ public class FragmentSettings extends Fragment {
                 editor.putInt("interval", intervalSpinner.getSelectedItemPosition());
                 editor.commit();
 
-                Toast.makeText(getActivity(), "settings saved", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Settings saved", Toast.LENGTH_SHORT).show();
             }
         });
     }
