@@ -1,8 +1,7 @@
-package id2216.ict.kth.se.ontime;
+package id2216.ict.kth.se.ontime.Fragments;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,12 +9,15 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import id2216.ict.kth.se.ontime.ActivityInterface;
+import id2216.ict.kth.se.ontime.R;
+
 /**
  * Fragment modelling the timer tab
  */
 public class FragmentTimer extends Fragment {
 
-    private TimerInterface mCallback;
+    private ActivityInterface mCallback;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -27,10 +29,10 @@ public class FragmentTimer extends Fragment {
         super.onAttach(activity);
 
         try {
-            mCallback = (TimerInterface) activity;
+            mCallback = (ActivityInterface) activity;
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString()
-                    + " must implement TimerInterface");
+                    + " must implement ActivityInterface");
         }
     }
 

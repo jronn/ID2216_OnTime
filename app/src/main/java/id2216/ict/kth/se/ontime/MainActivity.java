@@ -15,20 +15,24 @@ import android.view.View;
 
 import com.astuetz.PagerSlidingTabStrip;
 
-import java.util.concurrent.TimeUnit;
+import id2216.ict.kth.se.ontime.Fragments.FragmentTimePicker;
+import id2216.ict.kth.se.ontime.Fragments.FragmentTimer;
 
 /**
  * MainActivity, only activity used in the app
- * Implements TimerInterface for callbacks from the fragments. See interface for documentation
+ * Implements ActivityInterface for callbacks from the fragments. See interface for documentation
  * on related methods.
  */
-public class MainActivity extends FragmentActivity implements TimerInterface {
+public class MainActivity extends FragmentActivity implements ActivityInterface {
 
     private CountDownTimer cdt;
     private MyPageAdapter adapter;
     private Vibrator vibrator;
     private ViewPager pager;
     private SharedPreferences settings;
+
+    private String searchStation;
+    private int searchSiteId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -147,6 +151,22 @@ public class MainActivity extends FragmentActivity implements TimerInterface {
     public void showTimePickerDialog(View v) {
         DialogFragment newFragment = new FragmentTimePicker();
         newFragment.show(getSupportFragmentManager(), "timePicker");
+    }
+
+    public void setSearchStation(String searchStation) {
+        this.searchStation = searchStation;
+    }
+
+    public String getSearchStation() {
+        return searchStation;
+    }
+
+    public void setSearchSiteId(int siteId) {
+        this.searchSiteId = siteId;
+    }
+
+    public int getSearchSiteId() {
+        return searchSiteId;
     }
 }
 

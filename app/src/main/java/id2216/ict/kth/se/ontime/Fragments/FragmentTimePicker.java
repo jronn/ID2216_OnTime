@@ -1,4 +1,4 @@
-package id2216.ict.kth.se.ontime;
+package id2216.ict.kth.se.ontime.Fragments;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -10,6 +10,8 @@ import android.widget.TimePicker;
 
 import java.util.Calendar;
 
+import id2216.ict.kth.se.ontime.ActivityInterface;
+
 /**
  * Custom timePickerDialog, sets the timer once a time is picked
  *
@@ -18,7 +20,7 @@ import java.util.Calendar;
 public class FragmentTimePicker extends DialogFragment
         implements TimePickerDialog.OnTimeSetListener {
 
-    TimerInterface mCallback;
+    ActivityInterface mCallback;
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -37,10 +39,10 @@ public class FragmentTimePicker extends DialogFragment
         super.onAttach(activity);
 
         try {
-            mCallback = (TimerInterface) activity;
+            mCallback = (ActivityInterface) activity;
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString()
-                    + " must implement TimerInterface");
+                    + " must implement ActivityInterface");
         }
     }
 

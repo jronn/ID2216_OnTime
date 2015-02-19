@@ -3,7 +3,7 @@ package id2216.ict.kth.se.ontime;
 /**
  * Created by jronn on 2015-02-13.
  */
-public interface TimerInterface {
+public interface ActivityInterface {
 
     /**
      * Starts a countdown timer that lasts for a specified time, and "ticks" at a certain interval
@@ -19,4 +19,28 @@ public interface TimerInterface {
      * when discarding an existing one
      */
     public void cancelTimer();
+
+    /**
+     * Sets the station name to be used in active search
+     * @param station name
+     */
+    public void setSearchStation(String station);
+
+    /**
+     * Gets the Station to be used in active search
+     * @return station name
+     */
+    public String getSearchStation();
+
+    /**
+     * Sets the siteId to be searched
+     * @param siteId
+     */
+    public void setSearchSiteId(int siteId);
+
+    /**
+     * Gets the siteId to be searched
+     * @return siteId
+     */
+    public int getSearchSiteId();
 }

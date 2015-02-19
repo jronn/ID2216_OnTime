@@ -8,6 +8,12 @@ import android.support.v4.app.FragmentPagerAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
+import id2216.ict.kth.se.ontime.Fragments.FragmentCustom;
+import id2216.ict.kth.se.ontime.Fragments.FragmentSearch2;
+import id2216.ict.kth.se.ontime.Fragments.FragmentSearchContainer;
+import id2216.ict.kth.se.ontime.Fragments.FragmentSettings;
+import id2216.ict.kth.se.ontime.Fragments.FragmentTimer;
+
 /**
  * Custom implementation of FragmentPageAdapter. Specifies tab titles and which fragments to use.
  */

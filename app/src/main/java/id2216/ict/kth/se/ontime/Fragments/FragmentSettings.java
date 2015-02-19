@@ -1,4 +1,4 @@
-package id2216.ict.kth.se.ontime;
+package id2216.ict.kth.se.ontime.Fragments;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -14,6 +14,8 @@ import android.widget.CompoundButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import id2216.ict.kth.se.ontime.R;
 
 /**
  * Fragment modelling the settings tab

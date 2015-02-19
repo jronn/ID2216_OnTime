@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="id2216.ict.kth.se.ontime.FragmentSearch2"
+    tools:context="id2216.ict.kth.se.ontime.Fragments.FragmentSearch2"
     android:id="@+id/search2_frame">
 
     <Button
@@ -12,5 +12,16 @@
         android:text="Back"
         android:id="@+id/backButton"
         android:layout_gravity="left|top" />
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/departuresList"
+        android:layout_below="@+id/backButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"/>
 
 </FrameLayout>

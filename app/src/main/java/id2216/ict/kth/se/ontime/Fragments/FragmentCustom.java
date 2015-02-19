@@ -1,4 +1,4 @@
-package id2216.ict.kth.se.ontime;
+package id2216.ict.kth.se.ontime.Fragments;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -11,12 +11,15 @@ import android.widget.TimePicker;
 
 import java.util.Calendar;
 
+import id2216.ict.kth.se.ontime.R;
+import id2216.ict.kth.se.ontime.ActivityInterface;
+
 /**
  * Fragment modelling the custom tab
  */
 public class FragmentCustom extends Fragment {
 
-    TimerInterface mCallback;
+    ActivityInterface mCallback;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -54,10 +57,10 @@ public class FragmentCustom extends Fragment {
         super.onAttach(activity);
 
         try {
-            mCallback = (TimerInterface) activity;
+            mCallback = (ActivityInterface) activity;
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString()
-                    + " must implement TimerInterface");
+                    + " must implement ActivityInterface");
         }
     }
 }
