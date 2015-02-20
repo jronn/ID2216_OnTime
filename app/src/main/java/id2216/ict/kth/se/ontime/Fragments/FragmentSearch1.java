@@ -2,6 +2,7 @@ package id2216.ict.kth.se.ontime.Fragments;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -10,10 +11,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Filter;
 import android.widget.Filterable;
+import android.widget.ListView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -26,6 +29,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.ArrayList;
+import java.util.List;
 
 import id2216.ict.kth.se.ontime.ActivityInterface;
 import id2216.ict.kth.se.ontime.DelayAutoCompleteTextView;
@@ -38,9 +42,10 @@ public class FragmentSearch1 extends Fragment {
     private static final String LOG_TAG = "SEARCH TAB 1";
 
     private static final String PLACES_API_BASE = "http://api.sl.se/api2/typeahead.Json";
-    private static final String API_KEY = "";
+    private static final String API_KEY = "7945d1ac58324bc09c906061c7dc7626";
 
     private ActivityInterface mCallback;
+    private SharedPreferences settings;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -63,6 +68,24 @@ public class FragmentSearch1 extends Fragment {
     public void onActivityCreated(final Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        settings = getActivity().getSharedPreferences("OnTimeSettings", 0);
+
+        // Load recent searches from preferences.
+        updateRecentSearches();
+
+        final ListView myListView = (ListView) getView().findViewById(R.id.recentSearches);
+
+        myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                // Set station name in activity to be accessed from next search fragment
+                mCallback.setSearchStation((String) myListView.getItemAtPosition(position));
+
+                nextView();
+            }
+        });
+
         final DelayAutoCompleteTextView autoCompView = (DelayAutoCompleteTextView)getView().findViewById(R.id.delayAutoCompleteTextView);
         autoCompView.setAdapter(new PlacesAutoCompleteAdapter(this,R.layout.custom_list_item));
         autoCompView.setThreshold(3);
@@ -72,23 +95,29 @@ public class FragmentSearch1 extends Fragment {
             @Override
             public void onClick(View v) {
 
+                // Set recent searches
+                final SharedPreferences.Editor editor = settings.edit();
+                for(int i = 5; i > 0; i--) {
+                    String s = settings.getString("RS" + i, "");
+                    if(i != 5 && !s.equals("")) {
+                        editor.putString("RS" + (i + 1), s);
+                        Log.i(LOG_TAG, "Put " + s + " at RS" + (i+1));
+                    }
+                }
+                editor.putString("RS1", autoCompView.getText().toString());
+                editor.commit();
+                Log.i(LOG_TAG, "Put " + autoCompView.getText().toString() + " at RS1");
+                updateRecentSearches();
+
                 // Set station name in activity to be accessed from next search fragment
                 mCallback.setSearchStation(autoCompView.getText().toString());
 
+                // Hide keyboard
                 InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(
                                             Context.INPUT_METHOD_SERVICE);
                 imm.hideSoftInputFromWindow(autoCompView.getWindowToken(),0);
 
-                // Go to next view
-                FragmentTransaction trans = getFragmentManager()
-                        .beginTransaction();
-
-                trans.replace(R.id.root_frame, new FragmentSearch2());
-
-                trans.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-                trans.addToBackStack(null);
-
-                trans.commit();
+                nextView();
             }
         });
     }
@@ -203,5 +232,33 @@ public class FragmentSearch1 extends Fragment {
             };
             return filter;
         }
+    }
+
+    private void nextView() {
+        // Go to next view
+        FragmentTransaction trans = getFragmentManager()
+                .beginTransaction();
+
+        trans.replace(R.id.root_frame, new FragmentSearch2());
+
+        trans.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        trans.addToBackStack(null);
+
+        trans.commit();
+    }
+
+    private void updateRecentSearches() {
+        // Load recent searches from preferences
+        List<String> recentSearches = new ArrayList<>();
+
+        for(int i = 1; i < 6; i++) {
+            String s = settings.getString("RS" + i, "");
+            if(!s.equals(""))
+                recentSearches.add(s);
+        }
+        ListView myListView = (ListView) getView().findViewById(R.id.recentSearches);
+
+        myListView.setAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, recentSearches));
+
     }
 }

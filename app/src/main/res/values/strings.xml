@@ -10,7 +10,7 @@
     <string name="timer">00:00:00</string>
     <string name="cancel_timer_button">Cancel</string>
     <string name="journey_info">No departure specified</string>
-    <string name="timer_info">To start a new timer, search for a specific departure or ..</string>
+    <string name="timer_info">To start a new timer, search for a specific departure or set a custom timer</string>
     <string name="custom_time_button">Set custom time</string>
 
     <string name="search_title">Search for departure location</string>
@@ -19,7 +19,7 @@
     <string name="search_box">ex. Stockholm C</string>
 
     <string name="custom_start_button">Start</string>
-    <string name="custom_title">Specify a time</string>
+    <string name="custom_title">Specify a custom time</string>
 
     <string name="settings_title">Settings</string>
     <string name="vib_cb">Vibration notification</string>

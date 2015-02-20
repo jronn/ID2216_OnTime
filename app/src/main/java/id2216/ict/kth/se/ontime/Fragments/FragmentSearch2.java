@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -22,10 +23,12 @@ import org.json.JSONObject;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
 import id2216.ict.kth.se.ontime.ActivityInterface;
+import id2216.ict.kth.se.ontime.Departure;
 import id2216.ict.kth.se.ontime.R;
 import id2216.ict.kth.se.ontime.SLRestClient;
 
@@ -35,8 +38,8 @@ import id2216.ict.kth.se.ontime.SLRestClient;
  */
 public class FragmentSearch2 extends Fragment {
 
-    private static final String PLATSUPPSLAG_KEY = "";
-    private static final String REALTID_KEY = "";
+    private static final String PLATSUPPSLAG_KEY = "7945d1ac58324bc09c906061c7dc7626";
+    private static final String REALTID_KEY = "5568ff5a635647b1b9c278964794ad75";
     ActivityInterface mCallback;
 
     @Override
@@ -74,6 +77,19 @@ public class FragmentSearch2 extends Fragment {
                 trans.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
                 trans.addToBackStack(null);
                 trans.commit();
+            }
+        });
+
+        final ListView myListView = (ListView) getView().findViewById(R.id.departuresList);
+        myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Departure departure = (Departure)myListView.getItemAtPosition(position);
+                StringBuilder sb = new StringBuilder();
+                sb.append(departure.getTransportation() + " for " + departure.getDestination());
+                sb.append(", leaving at " + departure.getFormattedExpectedDateTime());
+
+                mCallback.startTimer(departure.getExpectedDateTime().getTime() - System.currentTimeMillis(), 1000, sb.toString());
             }
         });
     }
@@ -126,7 +142,7 @@ public class FragmentSearch2 extends Fragment {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 try {
-                    List<String> listContents = new ArrayList<String>();
+                    List<Departure> listContents = new ArrayList<Departure>();
 
                     JSONObject responseData = response.getJSONObject("ResponseData");
                     JSONArray buses = responseData.getJSONArray("Buses");
@@ -134,36 +150,37 @@ public class FragmentSearch2 extends Fragment {
 
                     for (int i = 0; i < buses.length(); i++) {
                         JSONObject jo = (JSONObject) buses.get(i);
-                        StringBuilder sb = new StringBuilder();
-                        sb.append(jo.getString("TransportMode") + " : ");
-                        sb.append(jo.getString("Destination") + " : ");
+
+                        Departure dest = new Departure();
+                        dest.setDestination(jo.getString("Destination"));
+                        dest.setTransportation(jo.getString("TransportMode"));
+
 
                         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
                         Date expectedDateTime = sdf.parse(jo.getString("ExpectedDateTime"));
+                        dest.setExpectedDateTime(expectedDateTime);
 
-                        SimpleDateFormat printSdf = new SimpleDateFormat("HH:mm:ss");
-
-                        sb.append(printSdf.format(expectedDateTime));
-                        listContents.add(sb.toString());
+                        listContents.add(dest);
                     }
 
                     for (int i = 0; i < trains.length(); i++) {
                         JSONObject jo = (JSONObject) trains.get(i);
                         StringBuilder sb = new StringBuilder();
-                        sb.append(jo.getString("TransportMode") + " : ");
-                        sb.append(jo.getString("Destination") + " : ");
+
+                        Departure dest = new Departure();
+                        dest.setDestination(jo.getString("Destination"));
+                        dest.setTransportation(jo.getString("TransportMode"));
+
 
                         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
                         Date expectedDateTime = sdf.parse(jo.getString("ExpectedDateTime"));
+                        dest.setExpectedDateTime(expectedDateTime);
 
-                        SimpleDateFormat printSdf = new SimpleDateFormat("HH:mm:ss");
-
-                        sb.append(printSdf.format(expectedDateTime));
-                        listContents.add(sb.toString());
+                        listContents.add(dest);
                     }
 
                     ListView myListView = (ListView) getView().findViewById(R.id.departuresList);
-                    myListView.setAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, listContents));
+                    myListView.setAdapter(new ArrayAdapter<Departure>(getActivity(), android.R.layout.simple_list_item_1, listContents));
                 } catch (JSONException e) {
                     e.printStackTrace();
                 } catch (ParseException e) {

@@ -54,21 +54,9 @@
         android:text="@string/timer_info"
         android:id="@+id/timerInfoText"
         android:layout_centerHorizontal="true"
-        android:layout_above="@+id/customTimeButton2"
-        android:layout_marginBottom="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="40dp"
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"/>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/custom_time_button"
-        android:id="@+id/customTimeButton2"
-        android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/cancelButton"
-        android:layout_alignStart="@+id/cancelButton"
-        android:layout_alignEnd="@+id/cancelButton"
-        android:layout_alignRight="@+id/cancelButton"
-        android:layout_marginBottom="20dp"
-        android:onClick="showTimePickerDialog"/>
 </RelativeLayout>

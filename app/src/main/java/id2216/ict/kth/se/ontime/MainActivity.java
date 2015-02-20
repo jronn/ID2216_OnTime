@@ -116,7 +116,7 @@ public class MainActivity extends FragmentActivity implements ActivityInterface 
      */
     private void vibrate() {
         if (settings.getBoolean("vibrations", true)) {
-            long[] pattern = {0, 1000, 500, 1000, 500, 1000};
+            long[] pattern = {0, 1000, 500, 2000, 500, 1000};
             vibrator.vibrate(pattern, -1);
         }
     }
