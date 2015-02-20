@@ -1,27 +1,29 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="id2216.ict.kth.se.ontime.Fragments.FragmentSearch2"
     android:id="@+id/search2_frame">
 
-    <Button
-        style="?android:attr/buttonStyleSmall"
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Back"
-        android:id="@+id/backButton"
-        android:layout_gravity="left|top" />
+        android:text="Departures"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/searchResultTitle"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"/>
 
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/departuresList"
-        android:layout_below="@+id/backButton"
+        android:layout_below="@+id/searchResultTitle"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
         android:layout_marginBottom="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"/>
 
-</FrameLayout>
+</RelativeLayout>

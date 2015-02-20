@@ -22,7 +22,9 @@
         android:id="@+id/journeyInfoText"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/timerTitle"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"/>
 
     <TextView
         android:layout_width="wrap_content"

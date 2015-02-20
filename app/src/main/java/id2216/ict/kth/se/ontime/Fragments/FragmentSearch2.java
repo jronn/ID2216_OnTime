@@ -65,7 +65,7 @@ public class FragmentSearch2 extends Fragment {
 
         searchDepartures();
 
-        Button backButton = (Button) getView().findViewById(R.id.backButton);
+       /* Button backButton = (Button) getView().findViewById(R.id.backButton);
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -78,7 +78,7 @@ public class FragmentSearch2 extends Fragment {
                 trans.addToBackStack(null);
                 trans.commit();
             }
-        });
+        });*/
 
         final ListView myListView = (ListView) getView().findViewById(R.id.departuresList);
         myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -86,8 +86,17 @@ public class FragmentSearch2 extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Departure departure = (Departure)myListView.getItemAtPosition(position);
                 StringBuilder sb = new StringBuilder();
-                sb.append(departure.getTransportation() + " for " + departure.getDestination());
-                sb.append(", leaving at " + departure.getFormattedExpectedDateTime());
+                String from = mCallback.getSearchStation();
+                String to = departure.getDestination();
+
+                if(from.length() > 15)
+                    from = from.substring(0,15) + "..";
+                if(to.length() > 15)
+                    to = to.substring(0,15) + "..";
+
+                sb.append("From: " + from);
+                sb.append("\nTo: " + to);
+                sb.append("\nDeparts: " + departure.getFormattedExpectedDateTime());
 
                 mCallback.startTimer(departure.getExpectedDateTime().getTime() - System.currentTimeMillis(), 1000, sb.toString());
             }
