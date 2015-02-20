@@ -98,6 +98,14 @@ public class FragmentSearch2 extends Fragment {
                 sb.append("\nTo: " + to);
                 sb.append("\nDeparts: " + departure.getFormattedExpectedDateTime());
 
+                // Go back to previous view
+                FragmentTransaction trans = getFragmentManager()
+                        .beginTransaction();
+                trans.replace(R.id.root_frame, new FragmentSearch1());
+                trans.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+                trans.addToBackStack(null);
+                trans.commit();
+
                 mCallback.startTimer(departure.getExpectedDateTime().getTime() - System.currentTimeMillis(), 1000, sb.toString());
             }
         });
