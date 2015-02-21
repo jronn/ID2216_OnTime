@@ -38,8 +38,8 @@ import id2216.ict.kth.se.ontime.SLRestClient;
  */
 public class FragmentSearch2 extends Fragment {
 
-    private static final String PLATSUPPSLAG_KEY = "7945d1ac58324bc09c906061c7dc7626";
-    private static final String REALTID_KEY = "5568ff5a635647b1b9c278964794ad75";
+    private static final String PLATSUPPSLAG_KEY = "";
+    private static final String REALTID_KEY = "";
     ActivityInterface mCallback;
 
     @Override
