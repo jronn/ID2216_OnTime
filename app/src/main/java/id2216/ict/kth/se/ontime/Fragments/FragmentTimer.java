@@ -18,6 +18,8 @@ import id2216.ict.kth.se.ontime.R;
 public class FragmentTimer extends Fragment {
 
     private ActivityInterface mCallback;
+    TextView journeyInfoText;
+    TextView timerText;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -37,18 +39,19 @@ public class FragmentTimer extends Fragment {
     }
 
     public void changeText(String text) {
-        TextView textView = (TextView) getView().findViewById(R.id.timerText);
-        textView.setText(text);
+        timerText.setText(text);
     }
 
     public void setJourneyInfo(String text) {
-        TextView textView = (TextView) getView().findViewById(R.id.journeyInfoText);
-        textView.setText(text);
+        journeyInfoText.setText(text);
     }
 
     @Override
     public void onActivityCreated(final Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
+        journeyInfoText = (TextView) getView().findViewById(R.id.journeyInfoText);
+        timerText = (TextView) getView().findViewById(R.id.timerText);
 
         Button cancelButton = (Button) getView().findViewById(R.id.cancelButton);
         cancelButton.setOnClickListener(new View.OnClickListener() {

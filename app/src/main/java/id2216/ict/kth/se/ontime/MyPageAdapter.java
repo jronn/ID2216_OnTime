@@ -20,7 +20,6 @@ import id2216.ict.kth.se.ontime.Fragments.FragmentTimer;
 public class MyPageAdapter extends FragmentPagerAdapter {
 
     List<Fragment> fragments = new ArrayList<Fragment>();
-    Fragment hiddenSearch;
 
     public MyPageAdapter(FragmentManager fm) {
         super(fm);
@@ -29,8 +28,6 @@ public class MyPageAdapter extends FragmentPagerAdapter {
         fragments.add(new FragmentSearchContainer());
         fragments.add(new FragmentCustom());
         fragments.add(new FragmentSettings());
-
-        hiddenSearch = new FragmentSearch2();
     }
 
     @Override

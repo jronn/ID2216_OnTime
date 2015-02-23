@@ -8,7 +8,7 @@
 
     <string name="timer_title">Time until departure</string>
     <string name="timer">00:00:00</string>
-    <string name="cancel_timer_button">Cancel</string>
+    <string name="cancel_timer_button">Reset</string>
     <string name="journey_info">No departure specified</string>
     <string name="timer_info">To start a new timer, search for a specific departure or set a custom timer</string>
     <string name="custom_time_button">Set custom time</string>

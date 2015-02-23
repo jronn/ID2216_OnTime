@@ -42,7 +42,7 @@ public class FragmentSearch1 extends Fragment {
     private static final String LOG_TAG = "SEARCH TAB 1";
 
     private static final String PLACES_API_BASE = "http://api.sl.se/api2/typeahead.Json";
-    private static final String API_KEY = "7945d1ac58324bc09c906061c7dc7626";
+    private static final String API_KEY = "";
 
     private ActivityInterface mCallback;
     private SharedPreferences settings;

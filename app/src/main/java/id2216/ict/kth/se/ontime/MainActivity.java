@@ -34,6 +34,7 @@ public class MainActivity extends FragmentActivity implements ActivityInterface 
     private String searchStation;
     private int searchSiteId;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,7 +64,6 @@ public class MainActivity extends FragmentActivity implements ActivityInterface 
         // Get interval
         int intervalNotification = settings.getInt("interval", 0);
         final int notificationTime = (intervalNotification + 1) * 60 * 1000;
-
 
         cancelTimer();
         cdt = new CountDownTimer(time, interval) {

@@ -12,7 +12,7 @@ import android.widget.AutoCompleteTextView;
 
 public class DelayAutoCompleteTextView extends AutoCompleteTextView {
 
-    private static final int AUTO_COMPLETE_DELAY = 2000; //Delay in milliseconds
+    private static final int AUTO_COMPLETE_DELAY = 500; //Delay in milliseconds
 
     public DelayAutoCompleteTextView(Context context, AttributeSet attrs) {
         super(context, attrs);
